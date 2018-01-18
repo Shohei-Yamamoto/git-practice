@@ -55,8 +55,6 @@ HEAD~3 で３つ前のコミットを指す
 git branch -f master HEAD~3
 ```
 上はmasterブランチをHEADの3つ前のコミットに移動させるコマンド
-<<<<<<< Updated upstream
-=======
 
 
 ## git reset
@@ -65,7 +63,16 @@ git branch -f master HEAD~3
 git reset HEAD^
 ```
 でmasterで作業中の場合コミットを一つ戻る
->>>>>>> Stashed changes
+
+しかしどうしてもリモートのコミットを取り消したい場合は、
+```
+git reset HEAD~3 && git push -f
+```
+しかし超危険なので注意。基本的に職場ではつかわない方がいいでしょう
+
+
+## git revert
+commitをとりけすcommitを追加する
 
 
 ## 参考
