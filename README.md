@@ -36,6 +36,7 @@ git checkout master && git merge bugfix
 ```
 でもいける
 
+
 ## HEAD
 HEADは常に作業中のコミットを指している
 普段masterで作業しているなら基本master自信を指している
@@ -82,6 +83,23 @@ git revert HEAD
 ## git log
 git logでログが見れる。qで終了
 git log --onelineで簡単なログ。ハッシュ値だけ見たかったりする時便利
+
+## git cherry-pick
+```
+git cherry-pick コミット
+```
+で他のブランチなどにあるコミットをrebaseのようにくっつけられるコミットは連続して書ける
+
+デバッグの時などにprintなどデバッグ用のコミットと、バグ修正用のcommitがある時に使える。
+
+## git rebase -i
+インタラクティブrebase
+エディタが開いてcommitのログをまとめたりできる。
+[参考](https://qiita.com/tsuuuuu_san/items/f708a9f7ea8ab8eb6945)
+
+例えば `git rebase -i` で少し修正を加えたいコミットを後に持ってきて、
+そこで`commit --amend`で少し修正を加えるといったことが可能
+
 
 ## 参考
 [learngitbranching](https://learngitbranching.js.org)
