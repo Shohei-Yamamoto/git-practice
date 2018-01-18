@@ -1,7 +1,8 @@
 # git-practice
 git practice
 
-##
+## git status
+とりあえず基本ステータスが観れる
 
 ## git merge
 ２つの親を持つコミット
@@ -58,6 +59,9 @@ git branch -f master HEAD~3
 上はmasterブランチをHEADの3つ前のコミットに移動させるコマンド
 
 
+`git HEAD^2`はマージされた側の親に戻る。mergeの時は親が２つあるのでその時に使う
+
+
 ## git reset
 ローカルで使う
 ```
@@ -100,6 +104,16 @@ git cherry-pick コミット
 例えば `git rebase -i` で少し修正を加えたいコミットを後に持ってきて、
 そこで`commit --amend`で少し修正を加えるといったことが可能
 
+## git stash
+`git stash`で、ステージされていないファイルたちを一時避難できる
+`git stash pop`で元に戻る
+
+## git tag
+`git tag TAG_v1 C1`でC1のコミットにタグをつけられる
+
+## git describe
+
+## git bisect
 
 ## 参考
 [learngitbranching](https://learngitbranching.js.org)
