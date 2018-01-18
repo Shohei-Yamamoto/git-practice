@@ -115,6 +115,31 @@ git cherry-pick コミット
 
 ## git bisect
 
+#リモート
+## git clone
+リモートのブランチをローカルに紐づける
+
+リモートのブランチは origin/developのように*リモート名/ブランチ名*になっている
+リモートブランチにチェックアウトして、コミットをしてもHEADが動くだけでremote/developの位置は変わらない
+
+## git fetch
+ローカルのリモートブランチよりリモートリポジトリのブランチが進んでる時、ローカルのリモートリポジトリをリモートリポジトリと同じ状態にする。
+* リモートにあってローカルにないコミットをダウンロード
+* リモートブランチの位置を変更
+上の２つの動作を行なっている
+
+ローカルブランチが何か変更される訳ではないので注意！
+
+## リモートの変更を自分の作業に取り込む方法
+* git cherry-pick origin/master
+* git rebase origin/master
+* git merge origin/master
+など
+`git pull`は　
+```
+git fetch && git merge origin/master
+```
+の短縮系
 ## 参考
 [learngitbranching](https://learngitbranching.js.org)
 
