@@ -31,6 +31,30 @@ masterのいちは変わっていない
 git checkout master && git rebase bugfix
 ```
 でmasterもbugfixに追いつく
+```
+git checkout master && git merge bugfix
+```
+でもいける
+
+## HEAD
+HEADは常に作業中のコミットを指している
+普段masterで作業しているなら基本master自信を指している
+commit自体(のハッシュ値)にチェックアウトすることで、HEADは直接そのコミットを指すことができる
+ハッシュ値は一意に判断できるなら途中までの文字列でも良い("abcde"というハッシュ値なら"abc"までなど)
+### 相対リファレンス
+HEAD^はHEADの一つ前のコミットを表す。master^などもできる。
+```
+git checkout master^^
+```
+などのように使える
+
+HEAD~3 で３つ前のコミットを指す
+
+よく使われるのがbranchの強制的な移動
+```
+git branch -f master HEAD~3
+```
+上はmasterブランチをHEADの3つ前のコミットに移動させるコマンド
 
 
 ## 参考
