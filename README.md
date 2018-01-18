@@ -74,6 +74,7 @@ git reset HEAD~3 && git push -f
 ## git revert
 commitをとりけすcommitを追加する
 
+for revert
 
 ## git log
 git logでログが見れる。qで終了
