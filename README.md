@@ -73,7 +73,11 @@ git reset HEAD~3 && git push -f
 
 ## git revert
 commitをとりけすcommitを追加する
-
+```
+git revert HEAD
+```
+とすると今HEADが指しているcommitが無効化される
+別にHEAD^としたからといって2つきえる訳ではなく、一つ前のコミットが消えるようなcommitが行われるだけ
 
 ## git log
 git logでログが見れる。qで終了
