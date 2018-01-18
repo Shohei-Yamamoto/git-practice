@@ -55,6 +55,17 @@ HEAD~3 で３つ前のコミットを指す
 git branch -f master HEAD~3
 ```
 上はmasterブランチをHEADの3つ前のコミットに移動させるコマンド
+<<<<<<< Updated upstream
+=======
+
+
+## git reset
+ローカルで使う
+```
+git reset HEAD^
+```
+でmasterで作業中の場合コミットを一つ戻る
+>>>>>>> Stashed changes
 
 
 ## 参考
