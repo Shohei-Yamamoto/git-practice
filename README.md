@@ -75,5 +75,22 @@ git reset HEAD~3 && git push -f
 commitをとりけすcommitを追加する
 
 
+## git log
+git logでログが見れる。qで終了
+git log --onelineで簡単なログ。ハッシュ値だけ見たかったりする時便利
+
 ## 参考
 [learngitbranching](https://learngitbranching.js.org)
+
+## トラブルシュート
+### ユーザー違いで起きる奴
+```
+git push origin master
+remote: Permission to Shohei-Yamamoto/git-practice.git denied to SignalYellow.
+fatal: unable to access 'https://github.com/Shohei-Yamamoto/git-practice.git/': The requested URL returned error: 403
+```
+上のような奴が出たら
+```
+git remote set-url origin https://Shohei-Yamamoto@github.com/Shohei-Yamamoto/git-practice.git/
+```
+こちらのようにURLに自分のユーザー名を付与して再度pushで解決
