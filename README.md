@@ -115,7 +115,7 @@ git cherry-pick コミット
 
 ## git bisect
 
-#リモート
+# リモート
 ## git clone
 リモートのブランチをローカルに紐づける
 
@@ -140,6 +140,67 @@ git cherry-pick コミット
 git fetch && git merge origin/master
 ```
 の短縮系
+
+
+## git push
+git pushは公開するためのコマンド
+デフォルトの動作はgit.defaultによって変わる
+
+remote レポジトリの履歴が変更された場合、結果的にローカルの履歴が古くなったら、pushはできずリモートブランチをローカルに取り込む必要がある
+基本的には
+```
+git fetch && git rebase origin/master && git push
+```
+で解決する
+
+`git pull --rebase` はfetchしてrebaseの省略形
+
+
+
+git pushは次のように書くこともできる `git push <remote> <place>`
+remoteはoriginのようなリモート名のことでplaceはブランチ名を変えす
+例えば、HEADがbranchでなくただのcommitの上にある場合、`git push`を入力してもエラーとなる。（remote trackingが設定されていないので）
+そういう場合に`git push origin master`とすることで明示的にmasterをoriginにpushできる
+
+次のようなコマンドも存在する
+```
+git push origin foo^:master
+```
+これはfooの一つ前のコミットまでの変更をmasterでpushするという意味
+
+## fetchの引数
+pushのようにfetchの引数も使える
+```
+git fetch origin foo
+```
+これでローカルのorigin/fooが更新される
+
+fetchにdestinationを指定した場合、例えば
+```
+git fetch origin foo^:bar
+```
+の場合、localのbarブランチにfooの一つ前のコミットまでがダウンロードされる
+origin/barには何も起こらない
+もしローカルにbarがない場合はbarを作ってくれる
+
+## リモートトラッキング
+pullとpushの動作はトラッキングの状態によって決定されている。
+masterとorigin/masterのような関係である
+
+ブランチの関係はremote trackingと言うプロパティが決定している
+`local branch "master" set to track remote branch "o/master"
+`
+この文言が出るときにセットされている
+
+このプロパティを設定する方法
+* リモートブランチのリファレンスを使って新しいブランチをチェックアウト
+`git checkout -b totallyNotMaster o/master`
+* 次のコマンドを使う
+`git branch -u o/master foo`
+-uは`--set-upstream-to`の略。もし今fooをチェックアウトしているならfooは省略可能
+
+
+
 ## 参考
 [learngitbranching](https://learngitbranching.js.org)
 
